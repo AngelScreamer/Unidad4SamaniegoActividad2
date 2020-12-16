@@ -1,0 +1,109 @@
+﻿html {
+    background-color: lightseagreen;
+    font-family: 'Yu Gothic UI';
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+body {
+    width: 1300px;
+    border-radius: 10px;
+}
+
+header {
+    background-color: white;
+}
+input[type=text], input[type=email], input[type=password], input[type=number] {
+    background-color: white;
+    color: lightseagreen;
+    font-size: 20px;
+    font-family: 'Yu Gothic';
+    padding: 3px;
+    margin: 5px;
+    width: 300px;
+}
+#activo {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Yu Gothic UI';
+    text-align: center;
+}
+main table tbody {
+    background-color: white;
+    border-color: black;
+}
+main table {
+    background-color: lightseagreen;
+    font-size: 15px;
+    font-family: 'Yu Gothic UI';
+    margin: 10px;
+    border: 1px;
+    border-color: black;
+}
+    main table thead {
+        background-color: lightseagreen;
+        text-align: center;
+        color: white;
+        font-family: 'Yu Gothic UI';
+        border-color: black;
+    }
+    header img {
+        height: 150px;
+        margin-top: 5px;
+    }
+body {
+    background-color: white;
+    width: 1000px;
+}
+main {
+    text-align: center;
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+    main h1 {
+        position: center;
+        font-family: 'Yu Gothic UI';
+        font-size: 30px;
+        color: lightseagreen;
+    }
+    main h3 {
+        position: center;
+        font-family: 'Yu Gothic UI';
+        font-size: 30px;
+        color: lightseagreen;
+        font-weight: bolder;
+    }
+    main input[type=submit] {
+        background-color: lightseagreen;
+        color: white;
+        font-weight: bold;
+    }
+main a {
+    color: lightseagreen;
+    font-size: 20px;
+    margin: 5px;
+}
+    main label {
+        font-size: 20px;
+        margin: 20px;
+        color: lightseagreen;
+    }
+footer {
+    background-color: white;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Yu Gothic UI';
+    font-weight: bold;
+    color: lightseagreen;
+    border: dotted;
+    margin: 20px;
+}
+
+
+
+
+

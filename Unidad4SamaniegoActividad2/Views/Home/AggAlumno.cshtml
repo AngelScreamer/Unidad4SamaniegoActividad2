@@ -1,0 +1,33 @@
+﻿@model Unidad4SamaniegoActividad2.Models.ViewModels.vmAggAlumno
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ Layout = "_Layout"; }
+<main>
+    <section id="datos">
+        <h1>Agregar alumno al sistema.</h1>
+        <form method="post" action="~/Home/AggAlumno">
+            @if (User.IsInRole("Docente"))
+            {
+<label id="labels">
+   Grupo del docente: @User.Claims.FirstOrDefault(x => x.Type == "Nombre").Value
+</label> }
+            else if (User.IsInRole("Director"))
+            {
+<label id="labels">
+    Alumno de: <input id="txtdisplay" type="text" asp-for="Docente.Nombre" />
+</label>            }
+            <br />
+            <label id="labels">Clave del maestro:</label> <input id="txtdisplay" type="number" asp-for="Docente.Clave" readonly />
+            <br />
+            <label id="editar">Número de control:</label>
+            <input type="text" asp-for="Alumno.NumeroDeControl" required />
+            <br />
+            <label id="editar">Nombre Completo:</label>
+            <input type="text" asp-for="Alumno.Nombre" required />
+            <br />
+            @Html.ValidationSummary()
+            <input type="submit" value="Aceptar" />
+
+            <a href="~/Home/VerAlumno/@(Model.Docente.Id)">Regresar</a>
+        </form>
+    </section>
+</main>

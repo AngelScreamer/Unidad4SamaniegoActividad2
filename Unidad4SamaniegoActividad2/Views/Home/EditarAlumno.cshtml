@@ -1,0 +1,47 @@
+﻿@model Unidad4SamaniegoActividad2.Models.ViewModels.vmAggAlumno
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ Layout = "_Layout"; }
+<main>
+    <section id="datos">
+        <h1>Editar alumno</h1>
+        @if (User.IsInRole("Director"))
+        {
+<form method="post" action="~/Home/EditarAlumno">
+    <input type="hidden" asp-for="Alumno.Id" />
+    <br />
+    <label id="labels">Docente del alumno:</label>
+    <input id="txtdisplay" type="text" asp-for="Docente.Nombre" readonly />
+    <br />
+    <label id="labels">Clave docente:</label>
+    <input id="txtdisplay" type="number" asp-for="Docente.Clave" readonly />
+    <br />
+    <label id="labels">Número de control:</label>
+    <input id="txtdisplay" type="text" asp-for="Alumno.NumeroDeControl" required readonly />
+    <br />
+    <label id="editar">Nombre completo:</label>
+    <input type="text" asp-for="Alumno.Nombre" required />
+    <br />
+    @Html.ValidationSummary()
+    <input type="submit" value="Aceptar" />
+    <a href="~/Home/VerAlumno/@(Model.Docente.Id)">Regresar</a>
+</form> }
+            else if (User.IsInRole("Docente"))
+            {
+<form method="post" action="~/Home/EditarAlumno">
+    <input type="hidden" asp-for="Alumno.Id" />
+    <input id="txtdisplay" type="text" asp-for="Docente.Nombre" readonly hidden />
+    <input id="txtdisplay" type="number" asp-for="Docente.Clave" readonly hidden />
+    <br />
+    <label id="labels">Número de control:</label>
+    <input id="txtdisplay" type="text" asp-for="Alumno.NumeroDeControl" required readonly />
+    <br />
+    <label id="editar">Nombre completo:</label>
+    <input type="text" asp-for="Alumno.Nombre" required />
+    <br />
+    @Html.ValidationSummary()
+    <input type="submit" value="Aceptar" />
+    <a href="~/Home/VerAlumno/@(int.Parse(User.Claims.FirstOrDefault(x=>x.Type=="Id").Value))">Regresar</a>
+</form>}
+    </section>
+</main>
+

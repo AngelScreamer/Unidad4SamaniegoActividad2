@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Unidad4SamaniegoActividad2.Models.Docente>
+@{ Layout = "_Layout"; }
+<main>
+    <section id="datos">
+        <h1>Docentes del sistema.</h1>
+        <a href="~/Home/RegistrarDocente">Agregar Docente</a>
+        <table id="tablas">
+            <thead>
+                <tr>
+                    <th>Número de control</th>
+                    <th>Nombre</th>
+                    <th>Situación</th>
+                    <th>Grupo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+    <tr>
+        <td>@item.Clave</td>
+        <td>@item.Nombre</td>
+        <td id="activo" href="#" onclick="cambiar(@item.Id)">@((item.Activo==1)?"Habilitado":"Desactivado")</td>
+
+        @if (item.Activo == 1)
+        {
+<td>
+    <a href="~/Home/VerAlumno/@item.Id">Ver lista de alumnos</a>
+</td>
+                    <td>
+                        <a href="~/Home/EditarDocente/@item.Id">Editar</a>
+                    </td>
+                                        <td>
+                                            <a href="~/Home/CambiarContrasena/@item.Id">Cambiar contraseña</a>
+                                        </td>}
+    </tr>
+}
+            </tbody>
+        </table>
+        <a href="~/Home/Index">Regresar</a>
+    </section>
+    <form method="post" action="~/Home/ActivacionDocente">
+        <input type="number" id="idDocente" name="Id" hidden />
+    </form>
+    <script>
+        function cambiar(id) {
+            document.getElementById("idDocente").value = id;
+            document.querySelector("form").submit();
+        }</script>
+</main>

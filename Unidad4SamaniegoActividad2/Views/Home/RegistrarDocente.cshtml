@@ -1,0 +1,23 @@
+﻿@model Unidad4SamaniegoActividad2.Models.Docente
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ Layout = "_Layout"; }
+<main>
+    <section id="datos">
+        <h1>Registro de docentes al sistema</h1>
+        <form method="post" action="~/Home/RegistrarDocente">
+            <label id="editar">Número de Control:</label>
+            <input type="number" asp-for="Clave" required />
+            <br />
+            <label id="editar">Nombre Completo:</label>
+            <input type="text" asp-for="Nombre" required />
+            <br />
+            <label id="editar">Contraseña:</label>
+            <input type="password" asp-for="Contrasena" required />
+            <br />
+            @Html.ValidationSummary()
+            <input type="submit" value="Aceptar" />
+            <a href="~/Home/VerDocente">Regresar</a>
+        </form>
+    </section>
+</main>
+

@@ -1,0 +1,35 @@
+﻿@{ Layout = "_Layout"; }
+<main>
+    <section id="datos">
+        @if (User.IsInRole("Docente"))
+        {
+<h1>Docente: @User.Claims.FirstOrDefault(x => x.Type == "Nombre").Value</h1>
+                <form id="perfil">
+                    <a href="~/Home/VerAlumno/@(int.Parse(User.Claims.FirstOrDefault(x=>x.Type=="Id").Value))">
+                        Ver Alumnos
+                    </a>
+                    <br />
+                    <a href="/Home/CerrarSesion">
+                        Cerrar sesión
+                    </a>
+                    <br />
+                </form>
+                }
+        @if (User.IsInRole("Director"))
+        {
+<form id="perfil">
+    <h1>Director: @User.Claims.FirstOrDefault(x => x.Type == "Nombre").Value</h1>
+    <br />
+    <a href="~/Home/VerDocente">
+        Ver Docentes
+    </a>
+    <br />
+    <a href="~/Home/CerrarSesion">
+        Cerrar sesión
+    </a>
+    <br />
+</form>
+        }
+    </section>
+</main>
+
